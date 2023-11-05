@@ -373,7 +373,7 @@ variable "apply_action_wait_for_action" {
 variable "apply_action_ignore_on_update" {
   description = "Ignore action to perform during update."
   type        = bool
-  default     = false
+  default     = true
 }
 
 #-----------------------------------------------------------
