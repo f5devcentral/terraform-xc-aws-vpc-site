@@ -125,10 +125,9 @@ variable "aws_cloud_credentials_tenant" {
 variable "direct_connect" {
   description = "Direct Connect feature configuration."
   type = object({
-    auto_asn = optional(bool)
-    cloud_aggregated_prefix = optional(list(string))
-    custom_asn = optional(number)
-    dc_connect_aggregated_prefix = optional(list(string))
+    auto_asn      = optional(bool)
+    custom_asn    = optional(number)
+    standard_vifs = optional(bool)
   })
   default = null
 }

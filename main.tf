@@ -102,10 +102,9 @@ resource "volterra_aws_vpc_site" "this" {
     for_each = (null != var.direct_connect) ? [0] : []
 
     content {
-      auto_asn                     = var.direct_connect.auto_asn
-      cloud_aggregated_prefix      = var.direct_connect.cloud_aggregated_prefix
-      custom_asn                   = var.direct_connect.custom_asn
-      dc_connect_aggregated_prefix = var.direct_connect.dc_connect_aggregated_prefix
+      auto_asn      = var.direct_connect.auto_asn
+      custom_asn    = var.direct_connect.custom_asn
+      standard_vifs = var.direct_connect.standard_vifs
     }
   }
 
