@@ -623,6 +623,13 @@ resource "volterra_cloud_site_labels" "labels" {
   ]
 }
 
+resource "time_sleep" "wait_10_seconds" {
+  # wait for 10 seconds until the site is created and validated
+  depends_on = [volterra_aws_vpc_site.this]
+
+  create_duration = "10s"
+}
+
 resource "volterra_tf_params_action" "action_apply" {
   site_name        = volterra_aws_vpc_site.this.name
   site_kind        = "aws_vpc_site"
@@ -631,7 +638,8 @@ resource "volterra_tf_params_action" "action_apply" {
   ignore_on_update = var.apply_action_ignore_on_update
 
   depends_on = [
-    volterra_aws_vpc_site.this
+    volterra_aws_vpc_site.this,
+    time_sleep.wait_10_seconds
   ]
 }
 
