@@ -617,10 +617,6 @@ resource "volterra_cloud_site_labels" "labels" {
   site_type        = "aws_vpc_site"
   labels           = var.tags
   ignore_on_delete = true
-
-  depends_on = [
-    volterra_aws_vpc_site.this
-  ]
 }
 
 resource "time_sleep" "wait_30_seconds" {
