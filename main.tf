@@ -612,12 +612,14 @@ resource "volterra_aws_vpc_site" "this" {
   }
 }
 
+/* tbd: add the labels to the site
 resource "volterra_cloud_site_labels" "labels" {
   name             = volterra_aws_vpc_site.this.name
   site_type        = "aws_vpc_site"
   labels           = var.tags
   ignore_on_delete = true
 }
+*/
 
 resource "time_sleep" "wait_30_seconds" {
   # wait for 30 seconds until the site is created and validated
