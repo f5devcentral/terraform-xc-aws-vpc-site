@@ -17,7 +17,7 @@ Here is a short example of how to use the module:
 ```hcl
 module "aws_vpc_site_ig" {
   source                     = "f5devcentral/aws-vpc-site/xc"
-  version                    = "0.0.1"
+  version                    = "0.0.11"
 
   site_name                  = "aws-ingress-gw-site"
   aws_region                 = "eu-west-2"
