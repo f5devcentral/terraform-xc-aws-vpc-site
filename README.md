@@ -19,7 +19,7 @@ It simplifies the AWS VPC Site creation process by populating default parameters
 | -------------------------------------------------------------------------------------------------------------------- | ---------- |
 | <a name="requirement_terraform"></a> [terraform](https://www.terraform.io/)                                          | >= 1.0     |
 | <a name="requirement_aws"></a> [aws](https://registry.terraform.io/providers/hashicorp/aws/latest)                   | >= 4.65.0  |
-| <a name="requirement_volterra"></a> [volterra](https://registry.terraform.io/providers/volterraedge/volterra/latest) | >= 0.11.26 |
+| <a name="requirement_volterra"></a> [volterra](https://registry.terraform.io/providers/volterraedge/volterra/latest) | >= 0.11.49 |
 | <a name="requirement_tls"></a> [tls](https://registry.terraform.io/providers/hashicorp/tls/latest)                   | >= 4.0     |
 | <a name="requirement_time"></a> [time](https://registry.terraform.io/providers/hashicorp/time/latest)                | >= 0.9     |
 
