@@ -236,15 +236,11 @@ resource "volterra_aws_vpc_site" "this" {
         }
       }
       performance_enhancement_mode {
-        perf_mode_l7_enhanced {
-          jumbo_disabled = (null == var.jumbo)
-        }
-
         dynamic "perf_mode_l7_enhanced" {
           for_each = (null != var.jumbo) ? [0] : []
           content {
-            jumbo_disabled    = (false == var.jumbo) ? false : null
-            jumbo_enabled     = (true == var.jumbo) ? true : null
+            jumbo_enabled    = (true == var.jumbo) ? true : null
+            jumbo_disabled   = (false == var.jumbo) ? true : null
           }
         }
       }
