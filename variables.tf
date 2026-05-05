@@ -108,7 +108,7 @@ variable "instance_type" {
 variable "jumbo" {
   description = "L3 performance mode enhancement to use jumbo frame."
   type        = bool
-  default     = null
+  default     = false
 }
 
 #-----------------------------------------------------------
