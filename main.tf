@@ -239,8 +239,8 @@ resource "volterra_aws_vpc_site" "this" {
         dynamic "perf_mode_l7_enhanced" {
           for_each = (null != var.jumbo) ? [0] : []
           content {
-            jumbo_enabled    = (true == var.jumbo) ? true : null
-            jumbo_disabled   = (false == var.jumbo) ? true : null
+            jumbo_enabled  = (true == var.jumbo) ? true : null
+            jumbo_disabled = (false == var.jumbo) ? true : null
           }
         }
       }
@@ -593,12 +593,12 @@ resource "volterra_aws_vpc_site" "this" {
       #-----------------------------------------------------
 
       performance_enhancement_mode {
-        
+
         dynamic "perf_mode_l7_enhanced" {
           for_each = (null != var.jumbo) ? [0] : []
           content {
-            jumbo_enabled    = (true == var.jumbo) ? true : null
-            jumbo_disabled   = (false == var.jumbo) ? true : null
+            jumbo_enabled  = (true == var.jumbo) ? true : null
+            jumbo_disabled = (false == var.jumbo) ? true : null
           }
         }
       }
