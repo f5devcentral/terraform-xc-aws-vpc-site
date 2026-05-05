@@ -6,7 +6,7 @@
 This Terraform module provisions an AWS VPC Site in F5 Distributed Cloud (XC). The module supports multiple AWS VPC Site types, including:
 
 - **Ingress Gateway** - Single interface for inbound traffic
-- **Ingress/Egress Gateway** - Dual interface for inbound and outbound traffic  
+- **Ingress/Egress Gateway** - Dual interface for inbound and outbound traffic
 - **App Stack (Voltstack Cluster)** - Kubernetes-enabled cluster for running applications
 
 It simplifies the AWS VPC Site creation process by populating default parameters, managing SSH keys, and parsing the Site Apply output.
@@ -39,7 +39,7 @@ Here are examples of how to use the module for different site types:
 ```hcl
 module "aws_vpc_site_ingress" {
   source  = "f5devcentral/aws-vpc-site/xc"
-  version = "0.0.12"
+  version = "0.0.13"
 
   site_name                  = "aws-ingress-gw-site"
   aws_region                 = "us-west-2"
@@ -56,7 +56,7 @@ module "aws_vpc_site_ingress" {
 ```hcl
 module "aws_vpc_site_ingress_egress" {
   source  = "f5devcentral/aws-vpc-site/xc"
-  version = "0.0.12"
+  version = "0.0.13"
 
   site_name             = "aws-ingress-egress-gw-site"
   aws_region            = "us-west-2"
@@ -67,7 +67,7 @@ module "aws_vpc_site_ingress_egress" {
   inside_subnets        = ["172.10.11.0/24", "172.10.12.0/24", "172.10.13.0/24"]
   outside_subnets       = ["172.10.21.0/24", "172.10.22.0/24", "172.10.23.0/24"]
   workload_subnets      = ["172.10.31.0/24", "172.10.32.0/24", "172.10.33.0/24"]
-  
+
   aws_cloud_credentials_name = "your_aws_cloud_creds"
 }
 ```
@@ -77,7 +77,7 @@ module "aws_vpc_site_ingress_egress" {
 ```hcl
 module "aws_vpc_site_app_stack" {
   source  = "f5devcentral/aws-vpc-site/xc"
-  version = "0.0.12"
+  version = "0.0.13"
 
   site_name             = "aws-app-stack-site"
   aws_region            = "us-west-2"
@@ -85,13 +85,13 @@ module "aws_vpc_site_app_stack" {
   master_nodes_az_names = ["us-west-2a"]
   vpc_cidr              = "172.10.0.0/16"
   local_subnets         = ["172.10.1.0/24"]
-  
+
   # Kubernetes configuration
   k8s_cluster = {
     name = "my-k8s-cluster"
   }
   default_storage = true
-  
+
   aws_cloud_credentials_name = "your_aws_cloud_creds"
 }
 ```
@@ -147,21 +147,25 @@ You can find additional usage examples in the "examples" folder of this module:
 ### Common Issues
 
 **Site creation times out**
+
 - F5 XC site creation can take 15-30 minutes
 - Increase `apply_action_wait_for_action` if needed
 - Check F5 XC console for site status
 
 **SSH connectivity issues**
+
 - Use the generated SSH key from module outputs
 - Ensure security group allows SSH (port 22)
 - Check AWS instance status and networking
 
 **Kubernetes not available (App Stack)**
+
 - Verify `k8s_cluster` configuration is provided
 - Check site status in F5 XC console
 - Ensure sufficient resources for K8s workloads
 
 **VPC/Subnet conflicts**
+
 - Check CIDR blocks don't overlap with existing networks
 - Verify subnet sizes are adequate for the number of nodes
 - Review AWS VPC quotas and limits
@@ -179,12 +183,14 @@ We welcome contributions to this module! Here's how you can help:
 ### Development Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/f5devcentral/terraform-xc-aws-vpc-site.git
    cd terraform-xc-aws-vpc-site
    ```
 
 2. **Install dependencies**
+
    - [Terraform](https://terraform.io/downloads) >= 1.0
    - [TFLint](https://github.com/terraform-linters/tflint) (optional)
    - AWS CLI configured with appropriate credentials
@@ -215,6 +221,5 @@ We welcome contributions to this module! Here's how you can help:
 6. Test the implementation
 
 ## License
-
 
 This module is licensed under the Apache 2.0 License.
