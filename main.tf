@@ -590,10 +590,9 @@ resource "volterra_aws_vpc_site" "this" {
       #-----------------------------------------------------
 
       performance_enhancement_mode {
-        perf_mode_l7_enhanced {
-          jumbo_disabled = (null == var.jumbo || false == var.jumbo) ? true : null
-          jumbo_enabled  = (true == var.jumbo) ? true : null
-
+        perf_mode_l3_enhanced {
+          no_jumbo = (null == var.jumbo || false == var.jumbo) ? true : null
+          jumbo    = (true == var.jumbo) ? true : null
         }
       }
     }
